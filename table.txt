@@ -1,0 +1,196 @@
+SQL> create table student
+  2  (rno number(3),
+  3  Name varchar2(20),
+  4  City varchar2(20),
+  5  Email varchar2(20),
+  6  Cno varchar2(15)
+  7  );
+
+Table created.
+
+SQL> desc student;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RNO                                                                        NUMBER(3)
+ NAME                                                                       VARCHAR2(20)
+ CITY                                                                       VARCHAR2(20)
+ EMAIL                                                                      VARCHAR2(20)
+ CNO                                                                        VARCHAR2(15)
+
+SQL> insert into student values(1,'Aaa','Junagadh','Aaa@gmail.com','1234567890');
+
+1 row created.
+
+SQL> insert into student(rno,name,city)values(2,'Bbb','Rajkot');
+
+1 row created.
+
+SQL> insert into student(rno,name,cno)values(3,'Ccc','1234567890');
+
+1 row created.
+
+SQL> insert into student values(&rno,'&name','&city','&email','&cno');
+Enter value for rno: 4
+Enter value for name: Ddd
+Enter value for city: surat
+Enter value for email: ddd@gmail.com
+Enter value for cno: 1212121212
+old   1: insert into student values(&rno,'&name','&city','&email','&cno')
+new   1: insert into student values(4,'Ddd','surat','ddd@gmail.com','1212121212')
+
+1 row created.
+
+SQL> save stu3
+Created file stu3.sql
+SQL> @stu3
+Enter value for rno: 5
+Enter value for name: Eee 
+Enter value for city: Baroda 
+Enter value for email: Eeee@gmial.com
+Enter value for cno: 1234567890
+old   1: insert into student values(&rno,'&name','&city','&email','&cno')
+new   1: insert into student values(5,'Eee ','Baroda ','Eeee@gmial.com','1234567890')
+
+1 row created.
+
+SQL> select * from student;
+
+       RNO NAME                 CITY                 EMAIL                CNO                                           
+---------- -------------------- -------------------- -------------------- ---------------                               
+         1 Aaa                  Junagadh             Aaa@gmail.com        1234567890                                    
+         2 Bbb                  Rajkot                                                                                  
+         3 Ccc                                                            1234567890                                    
+         4 Ddd                  surat                ddd@gmail.com        1212121212                                    
+         5 Eee                  Baroda               Eeee@gmial.com       1234567890                                    
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+D1                             TABLE                                                                                    
+F1                             TABLE                                                                                    
+STUDENT                        TABLE                                                                                    
+EMP1                           TABLE                                                                                    
+DEPT1                          TABLE                                                                                    
+SALGRADE1                      TABLE                                                                                    
+
+6 rows selected.
+
+SQL> create table p1
+  2  (rno number (3) primary key,
+  3  name varchar2(20)
+  4  );
+
+Table created.
+
+SQL> insert into p1 (1,'Aaaa');
+insert into p1 (1,'Aaaa')
+                *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into p1 values (1,'Aaa');
+
+1 row created.
+
+SQL> insert into p1 values (2,'Bbb');
+
+1 row created.
+
+SQL> desc p1
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RNO                                                               NOT NULL NUMBER(3)
+ NAME                                                                       VARCHAR2(20)
+
+SQL> select * from p1;
+
+       RNO NAME                                                                                                         
+---------- --------------------                                                                                         
+         1 Aaa                                                                                                          
+         2 Bbb                                                                                                          
+
+SQL> create table p2
+  2  (rno number(3),
+  3  name varchar2(20),
+  4  City varchar2(20),
+  5  primary key(rno)
+  6  );
+
+Table created.
+
+SQL> insert into p1 values(1,'Aaa');
+insert into p1 values(1,'Aaa')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MUKESH.SYS_C006014) violated 
+
+
+SQL> insert into p2 values (1,'Aaaa','Junagadh');
+
+1 row created.
+
+SQL> desc p2
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RNO                                                               NOT NULL NUMBER(3)
+ NAME                                                                       VARCHAR2(20)
+ CITY                                                                       VARCHAR2(20)
+
+SQL> select * from p2;
+
+       RNO NAME                 CITY                                                                                    
+---------- -------------------- --------------------                                                                    
+         1 Aaaa                 Junagadh                                                                                
+
+SQL> create table r1
+  2  M1 number(3) references p1 (rno),
+  3  M2 number(3),
+  4  M3 number(3)
+  5  );
+M1 number(3) references p1 (rno),
+*
+ERROR at line 2:
+ORA-00922: missing or invalid option 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table r1
+  2  rno number(3) references p1 (rno),
+  3  M1 number(3),
+  4  M2 number(3),
+  5  M3 number(3)
+  6* )
+SQL> /
+rno number(3) references p1 (rno),
+*
+ERROR at line 2:
+ORA-00922: missing or invalid option 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table r1
+  2  (
+  3  rno number(3) references p1 (rno),
+  4  M1 number(3),
+  5  M2 number(3),
+  6  M3 number(3)
+  7* )
+SQL> /
+
+Table created.
+
+SQL> insert into r1 values (1,45,55,65);
+
+1 row created.
+
+SQL> insert into r1 values (1,45,47,48);
+
+1 row created.
+
+SQL> spool off

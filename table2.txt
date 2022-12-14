@@ -1,0 +1,288 @@
+SQL> create table r2
+  2  (rno number(3),
+  3  m1 number(3),
+  4  m2 number(3),
+  5  m3 number(3),
+  6  foreign key(rno) references p2(rno)
+  7  );
+
+Table created.
+
+SQL> select * from p1;
+
+       RNO NAME                                                                                                         
+---------- --------------------                                                                                         
+         1 Aaa                                                                                                          
+         2 Bbb                                                                                                          
+
+SQL> select * from r1;
+
+       RNO         M1         M2         M3                                                                             
+---------- ---------- ---------- ----------                                                                             
+         1         45         55         65                                                                             
+         1         45         47         48                                                                             
+
+SQL> insert into r2 values(1,12,12,13);
+
+1 row created.
+
+SQL> insert into r2 values (2,12,145,15);
+insert into r2 values (2,12,145,15)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (MUKESH.SYS_C006026) violated - parent key not found 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into r2 values (2,12,14,15)
+SQL> /
+insert into r2 values (2,12,14,15)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (MUKESH.SYS_C006026) violated - parent key not found 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into r2 values(2,12,14,15)
+SQL> /
+insert into r2 values(2,12,14,15)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (MUKESH.SYS_C006026) violated - parent key not found 
+
+
+SQL> create table r3
+  2  (rno number(3) references p3(rno) on delete cascade,
+  3  m1 number(3),
+  4  m2 number(3),
+  5  m3 number (3)
+  6  );
+(rno number(3) references p3(rno) on delete cascade,
+                          *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table r3
+  2  (rno number(3) references p3(rno) on delete cascade,
+  3  m1 number(3),
+  4  m2 number(3),
+  5  m3 number (3)
+  6* )
+SQL> /
+(rno number(3) references p3(rno) on delete cascade,
+                          *
+ERROR at line 2:
+ORA-00942: table or view does not exist 
+
+
+SQL> create table p3
+  2  (rno number(3) primary key,
+  3  name varchar2(20)
+  4  );
+
+Table created.
+
+SQL> create table r3
+  2  (rno number(3)  references p3(rno) on delete cascade,
+  3  m1 number(3),
+  4  m2 number(3),
+  5  m3 number (3)
+  6  )
+  7  /
+
+Table created.
+
+SQL> insert into p3 values(1,'Aaa');
+
+1 row created.
+
+SQL> insert into p3 values(2,'Bbb');
+
+1 row created.
+
+SQL> insert inton r3 values (1,10,20,30);
+insert inton r3 values (1,10,20,30)
+       *
+ERROR at line 1:
+ORA-00925: missing INTO keyword 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into r3 values (1,10,20,30)
+SQL> /
+
+1 row created.
+
+SQL> insert into r3 values (2,20,25,50);
+
+1 row created.
+
+SQL> insert into r3 values ((1,10,20,30);
+insert into r3 values ((1,10,20,30)
+                         *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into r3 values (1,10,20,30)
+SQL> /
+
+1 row created.
+
+SQL>  insert into r3 values (2,20,25,50);
+
+1 row created.
+
+SQL> delete from p3 where rno=2;
+
+1 row deleted.
+
+SQL> select * from p3;
+
+       RNO NAME                                                                                                         
+---------- --------------------                                                                                         
+         1 Aaa                                                                                                          
+
+SQL> select * from r3;
+
+       RNO         M1         M2         M3                                                                             
+---------- ---------- ---------- ----------                                                                             
+         1         10         20         30                                                                             
+         1         10         20         30                                                                             
+
+SQL> create table u1
+  2  rno number(3) unique,
+  3  name varchar2(20)
+  4  );
+rno number(3) unique,
+*
+ERROR at line 2:
+ORA-00922: missing or invalid option 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table u1
+  2  rno number(3)unique,
+  3  name varchar2(20)
+  4* )
+SQL> /
+rno number(3)unique,
+*
+ERROR at line 2:
+ORA-00922: missing or invalid option 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table u1
+  2  (rno number(3) unique,
+  3  name varchar2(20)
+  4* )
+SQL> /
+
+Table created.
+
+SQL> insert into v1 values(1,'Aaa');
+insert into v1 values(1,'Aaa')
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into u1 values (1,'Aaa');
+
+1 row created.
+
+SQL> insert into u1 values (1,'Bbb');
+insert into u1 values (1,'Bbb')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MUKESH.SYS_C006029) violated 
+
+
+SQL> insert into u1 (name) values('Bbb');
+
+1 row created.
+
+SQL> create table u2
+  2  (rno number(3),
+  3  name varchar2(20),
+  4  unique(rno)
+  5  );
+
+Table created.
+
+SQL> create table n1
+  2  (rno number(3) not null,
+  3  name varchar2(20) not null,
+  4  m1 number(3) not null,
+  5  m2 number(3),
+  6  m3 number(3)
+  7  );
+
+Table created.
+
+SQL> desc n1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RNO                                                               NOT NULL NUMBER(3)
+ NAME                                                              NOT NULL VARCHAR2(20)
+ M1                                                                NOT NULL NUMBER(3)
+ M2                                                                         NUMBER(3)
+ M3                                                                         NUMBER(3)
+
+SQL> insert into n1 values (1,'Aaa','10,20,30);
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into n1 values (1,'Aaa',10,20,30)
+SQL> /
+
+1 row created.
+
+SQL> insert into n1 (rno,name,m1) values (2,'Bbb',10);
+
+1 row created.
+
+SQL> create table c1
+  2  (rno number(3),
+  3  m1 number(3) check (m1 between 0 and 100),
+  4  m2 number(3) check (m2 between 0 and 100),
+  5  m3 number(3) check (m3 between 0 and 100)
+  6  
+SQL> );
+SP2-0042: unknown command ")" - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table c1
+  2  (rno number(3),
+  3  m1 number(3) check (m1 between 0 and 100),
+  4  m2 number(3) check (m2 between 0 and 100),
+  5  m3 number(3) check (m3 between 0 and 100)
+  6* )
+SQL> /
+
+Table created.
+
+SQL> spool off

@@ -1,0 +1,156 @@
+SQL> select * from emp1 where sal=5000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+
+SQL> select max(sal) from mep1;
+select max(sal) from mep1
+                     *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select max(Sal) from emp1;
+
+  MAX(SAL)                                                                                                              
+----------                                                                                                              
+      5000                                                                                                              
+
+SQL> select * from emp1 where sal=(select max (Sal) from emp1);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+
+SQL> select ename,sal from emp1 where sal=(select max(sal) from emp1);
+
+ENAME             SAL                                                                                                   
+---------- ----------                                                                                                   
+KING             5000                                                                                                   
+
+SQL> selcet ename,sal,job from emp1 where sal in (select max(sal) from emp1 group by job);
+SP2-0734: unknown command beginning "selcet ena..." - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select ename,sal from emp1 where sal=(select max(sal) from emp1)
+SQL> /
+
+ENAME             SAL                                                                                                   
+---------- ----------                                                                                                   
+KING             5000                                                                                                   
+
+SQL> select ename ,sal,job from emp1 where sal in (select max (sal) from emp group by job);
+select ename ,sal,job from emp1 where sal in (select max (sal) from emp group by job)
+                                                                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select ename ,sal,job from emp1 where sal in (select max (sal) from emp1 group by job)
+SQL> /
+
+ENAME             SAL JOB                                                                                               
+---------- ---------- ---------                                                                                         
+MILLER           1300 CLERK                                                                                             
+ALLEN            1600 SALESMAN                                                                                          
+KING             5000 PRESIDENT                                                                                         
+JONES            2975 MANAGER                                                                                           
+FORD             3000 ANALYST                                                                                           
+SCOTT            3000 ANALYST                                                                                           
+
+6 rows selected.
+
+SQL> select ename,sal,job from emp1 where sal in (1300,1600,5000,2975,3000);
+
+ENAME             SAL JOB                                                                                               
+---------- ---------- ---------                                                                                         
+ALLEN            1600 SALESMAN                                                                                          
+JONES            2975 MANAGER                                                                                           
+SCOTT            3000 ANALYST                                                                                           
+KING             5000 PRESIDENT                                                                                         
+FORD             3000 ANALYST                                                                                           
+MILLER           1300 CLERK                                                                                             
+
+6 rows selected.
+
+SQL> select ename ,sal,job from emp1 where (Sal,job) in(select max(Sal),job from emp1 group by job);
+
+ENAME             SAL JOB                                                                                               
+---------- ---------- ---------                                                                                         
+MILLER           1300 CLERK                                                                                             
+ALLEN            1600 SALESMAN                                                                                          
+KING             5000 PRESIDENT                                                                                         
+JONES            2975 MANAGER                                                                                           
+FORD             3000 ANALYST                                                                                           
+SCOTT            3000 ANALYST                                                                                           
+
+6 rows selected.
+
+SQL> select deptno from emp1 where ename='SCOTT';
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        20                                                                                                              
+
+SQL> select ename,deptno from emp1 where deptno not in(select deptno from emp1 where ename='SCOTT');
+
+ENAME          DEPTNO                                                                                                   
+---------- ----------                                                                                                   
+ALLEN              30                                                                                                   
+WARD               30                                                                                                   
+MARTIN             30                                                                                                   
+BLAKE              30                                                                                                   
+CLARK              10                                                                                                   
+KING               10                                                                                                   
+TURNER             30                                                                                                   
+JAMES              30                                                                                                   
+MILLER             10                                                                                                   
+
+9 rows selected.
+
+SQL> select deptno,ename,sal from emp1 e1 where sal=(Select max(Sal) from emp1 where deptno=e1.deptno);
+
+    DEPTNO ENAME             SAL                                                                                        
+---------- ---------- ----------                                                                                        
+        30 BLAKE            2850                                                                                        
+        20 SCOTT            3000                                                                                        
+        10 KING             5000                                                                                        
+        20 FORD             3000                                                                                        
+
+SQL> select deptno,ename,sal from emp1 e1 where sal=(select max(Sal) from emp1 where deptno=e1.deptno) order by deptno;
+
+    DEPTNO ENAME             SAL                                                                                        
+---------- ---------- ----------                                                                                        
+        10 KING             5000                                                                                        
+        20 SCOTT            3000                                                                                        
+        20 FORD             3000                                                                                        
+        30 BLAKE            2850                                                                                        
+
+SQL> selcet deptno,job,sal from emp1 e1 where sal=(select max(Sal) from emp where job=e1.job) order by job;
+SP2-0734: unknown command beginning "selcet dep..." - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select deptno,ename,sal from emp1 e1 where sal=(select max(Sal) from emp1 where deptno=e1.deptno) order by deptno
+SQL> /
+
+    DEPTNO ENAME             SAL                                                                                        
+---------- ---------- ----------                                                                                        
+        10 KING             5000                                                                                        
+        20 SCOTT            3000                                                                                        
+        20 FORD             3000                                                                                        
+        30 BLAKE            2850                                                                                        
+
+SQL> select deptno,job,sal from emp1 e1 where e1 sal=(select max(sal) from emp1 where job=e1.job) order by job;
+select deptno,job,sal from emp1 e1 where e1 sal=(select max(sal) from emp1 where job=e1.job) order by job
+                                            *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> spool off

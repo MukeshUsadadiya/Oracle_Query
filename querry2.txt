@@ -1,0 +1,540 @@
+SQL> select * from emp111111111111111;
+select * from emp111111111111111
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from emp1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                   
+
+14 rows selected.
+
+SQL> select * from emp1 where sal between 2000 and 3000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+
+SQL> select * from emp1 where sal>=2000 and sal<=3000;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+
+SQL> select * from emp1 where empno=7369 or empno=7499 or empno=7521;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+
+SQL> select * from emp1 where empno in (7369,7521,7899,7566);
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+
+SQL> select * fromemp1 order by sal;
+select * fromemp1 order by sal
+         *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select * from emp1 order by sal;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+
+14 rows selected.
+
+SQL> select * from emp1 order by sal desc;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+
+14 rows selected.
+
+SQL> select deptno from emp1;
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        20                                                                                                              
+        30                                                                                                              
+        30                                                                                                              
+        20                                                                                                              
+        30                                                                                                              
+        30                                                                                                              
+        10                                                                                                              
+        20                                                                                                              
+        10                                                                                                              
+        30                                                                                                              
+        20                                                                                                              
+        30                                                                                                              
+        20                                                                                                              
+        10                                                                                                              
+
+14 rows selected.
+
+SQL> select distinct deptno from emp1;
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        30                                                                                                              
+        20                                                                                                              
+        10                                                                                                              
+
+SQL> select sum (sal) from emp1;
+
+  SUM(SAL)                                                                                                              
+----------                                                                                                              
+     29025                                                                                                              
+
+SQL> select avg(Sal) from emp1;
+
+  AVG(SAL)                                                                                                              
+----------                                                                                                              
+2073.21429                                                                                                              
+
+SQL> select max (Sal) from emp1;
+
+  MAX(SAL)                                                                                                              
+----------                                                                                                              
+      5000                                                                                                              
+
+SQL> select min(sal) from emp1;
+
+  MIN(SAL)                                                                                                              
+----------                                                                                                              
+       800                                                                                                              
+
+SQL> select count(sal) from emp1;
+
+COUNT(SAL)                                                                                                              
+----------                                                                                                              
+        14                                                                                                              
+
+SQL> select deptno,sum (Sal) from  emp1 group by (deptno);
+
+    DEPTNO   SUM(SAL)                                                                                                   
+---------- ----------                                                                                                   
+        30       9400                                                                                                   
+        20      10875                                                                                                   
+        10       8750                                                                                                   
+
+SQL> select sum(sal) from emp1;
+
+  SUM(SAL)                                                                                                              
+----------                                                                                                              
+     29025                                                                                                              
+
+SQL> select job,sum(sal) from emp group by job;
+select job,sum(sal) from emp group by job
+                         *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select job,sum(sal) from emp1 group by job
+SQL> /
+
+JOB         SUM(SAL)                                                                                                    
+--------- ----------                                                                                                    
+CLERK           4150                                                                                                    
+SALESMAN        5600                                                                                                    
+PRESIDENT       5000                                                                                                    
+MANAGER         8275                                                                                                    
+ANALYST         6000                                                                                                    
+
+SQL> select job,sum(sal from emp1 by job having job like 'CLERK';
+select job,sum(sal from emp1 by job having job like 'CLERK'
+                   *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select job,sum(sal from emp1 by job having job like 'CLERK')
+SQL> /
+select job,sum(sal from emp1 by job having job like 'CLERK')
+                   *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select job,sum(sal )from emp1 by job having job like 'CLERK'
+SQL> /
+select job,sum(sal )from emp1 by job having job like 'CLERK'
+                              *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select job,sum(sal )from emp1 group by job having job like 'CLERK'
+SQL> /
+
+JOB         SUM(SAL)                                                                                                    
+--------- ----------                                                                                                    
+CLERK           4150                                                                                                    
+
+SQL> select deptno from dept1 union select deptno from emp1;
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        10                                                                                                              
+        20                                                                                                              
+        30                                                                                                              
+        40                                                                                                              
+
+SQL> select deptno from dept1 inserset select deptno from emp1;
+select deptno from dept1 inserset select deptno from emp1
+                                  *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select deptno from dept1 intersect select deptno from emp1
+SQL> /
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        10                                                                                                              
+        20                                                                                                              
+        30                                                                                                              
+
+SQL> select deptno from minus select deptno from emp1;
+select deptno from minus select deptno from emp1
+                   *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select deptno from dept1 minus select deptno from emp1
+SQL> /
+
+    DEPTNO                                                                                                              
+----------                                                                                                              
+        40                                                                                                              
+
+SQL> select * from emp1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                   
+
+14 rows selected.
+
+SQL> select * from dept1;
+
+    DEPTNO DNAME          LOC                                                                                           
+---------- -------------- -------------                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                      
+        20 RESEARCH       DALLAS                                                                                        
+        30 SALES          CHICAGO                                                                                       
+        40 OPERATIONS     BOSTON                                                                                        
+
+SQL> selec empno,ename,dname from emp1,dept1 where emp1.deptno=dept1.deptno;
+SP2-0734: unknown command beginning "selec empn..." - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select * from dept1
+SQL> /
+
+    DEPTNO DNAME          LOC                                                                                           
+---------- -------------- -------------                                                                                 
+        10 ACCOUNTING     NEW YORK                                                                                      
+        20 RESEARCH       DALLAS                                                                                        
+        30 SALES          CHICAGO                                                                                       
+        40 OPERATIONS     BOSTON                                                                                        
+
+SQL> select empno,ename,dname from emp1,dept1 where emp1.deptno=dept1.deptno;
+
+     EMPNO ENAME      DNAME                                                                                             
+---------- ---------- --------------                                                                                    
+      7369 SMITH      RESEARCH                                                                                          
+      7499 ALLEN      SALES                                                                                             
+      7521 WARD       SALES                                                                                             
+      7566 JONES      RESEARCH                                                                                          
+      7654 MARTIN     SALES                                                                                             
+      7698 BLAKE      SALES                                                                                             
+      7782 CLARK      ACCOUNTING                                                                                        
+      7788 SCOTT      RESEARCH                                                                                          
+      7839 KING       ACCOUNTING                                                                                        
+      7844 TURNER     SALES                                                                                             
+      7876 ADAMS      RESEARCH                                                                                          
+      7900 JAMES      SALES                                                                                             
+      7902 FORD       RESEARCH                                                                                          
+      7934 MILLER     ACCOUNTING                                                                                        
+
+14 rows selected.
+
+SQL> select empno,ename,dname,loc from emp1,dept;
+select empno,ename,dname,loc from emp1,dept
+                                       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select empno,ename,dname,loc from emp1.dept
+SQL> /
+select empno,ename,dname,loc from emp1.dept
+                                       *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select emp1.empno,enp1.ename,dept1.deptno,dept1.dname,loc from emp1.dept1 where emp1.deptno=dept1.deptno
+SQL> /
+select emp1.empno,enp1.ename,dept1.deptno,dept1.dname,loc from emp1.dept1 where emp1.deptno=dept1.deptno
+                                                                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select emp1.empno,emp1.ename,dept1.deptno,dept1.dname,loc from emp1.dept1 where emp1.deptno=dept1.deptno
+SQL> /
+select emp1.empno,emp1.ename,dept1.deptno,dept1.dname,loc from emp1.dept1 where emp1.deptno=dept1.deptno
+                                                                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select emp1.empno,emp1.ename,dept1.deptno,dept1.dname,loc from emp1,dept1 where emp1.deptno=dept1.deptno
+SQL> /
+
+     EMPNO ENAME          DEPTNO DNAME          LOC                                                                     
+---------- ---------- ---------- -------------- -------------                                                           
+      7369 SMITH              20 RESEARCH       DALLAS                                                                  
+      7499 ALLEN              30 SALES          CHICAGO                                                                 
+      7521 WARD               30 SALES          CHICAGO                                                                 
+      7566 JONES              20 RESEARCH       DALLAS                                                                  
+      7654 MARTIN             30 SALES          CHICAGO                                                                 
+      7698 BLAKE              30 SALES          CHICAGO                                                                 
+      7782 CLARK              10 ACCOUNTING     NEW YORK                                                                
+      7788 SCOTT              20 RESEARCH       DALLAS                                                                  
+      7839 KING               10 ACCOUNTING     NEW YORK                                                                
+      7844 TURNER             30 SALES          CHICAGO                                                                 
+      7876 ADAMS              20 RESEARCH       DALLAS                                                                  
+      7900 JAMES              30 SALES          CHICAGO                                                                 
+      7902 FORD               20 RESEARCH       DALLAS                                                                  
+      7934 MILLER             10 ACCOUNTING     NEW YORK                                                                
+
+14 rows selected.
+
+SQL> select d.deptno,d.dname,e.empno,e.name from dept1 d,emp1 e where d.deptno=e.deptno(+);
+select d.deptno,d.dname,e.empno,e.name from dept1 d,emp1 e where d.deptno=e.deptno(+)
+                                *
+ERROR at line 1:
+ORA-00904: "E"."NAME": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select d.deptno,d.dname,e.empno,e.ename from dept1 d,emp1 e where d.deptno=e.deptno(+)
+SQL> /
+
+    DEPTNO DNAME               EMPNO ENAME                                                                              
+---------- -------------- ---------- ----------                                                                         
+        20 RESEARCH             7369 SMITH                                                                              
+        30 SALES                7499 ALLEN                                                                              
+        30 SALES                7521 WARD                                                                               
+        20 RESEARCH             7566 JONES                                                                              
+        30 SALES                7654 MARTIN                                                                             
+        30 SALES                7698 BLAKE                                                                              
+        10 ACCOUNTING           7782 CLARK                                                                              
+        20 RESEARCH             7788 SCOTT                                                                              
+        10 ACCOUNTING           7839 KING                                                                               
+        30 SALES                7844 TURNER                                                                             
+        20 RESEARCH             7876 ADAMS                                                                              
+        30 SALES                7900 JAMES                                                                              
+        20 RESEARCH             7902 FORD                                                                               
+        10 ACCOUNTING           7934 MILLER                                                                             
+        40 OPERATIONS                                                                                                   
+
+15 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select d.deptno,d.dname,e.empno,e.ename from dept1 d,emp1 e where d.deptno(+)=e.deptno
+SQL> /
+
+    DEPTNO DNAME               EMPNO ENAME                                                                              
+---------- -------------- ---------- ----------                                                                         
+        10 ACCOUNTING           7934 MILLER                                                                             
+        10 ACCOUNTING           7839 KING                                                                               
+        10 ACCOUNTING           7782 CLARK                                                                              
+        20 RESEARCH             7902 FORD                                                                               
+        20 RESEARCH             7876 ADAMS                                                                              
+        20 RESEARCH             7788 SCOTT                                                                              
+        20 RESEARCH             7566 JONES                                                                              
+        20 RESEARCH             7369 SMITH                                                                              
+        30 SALES                7900 JAMES                                                                              
+        30 SALES                7844 TURNER                                                                             
+        30 SALES                7698 BLAKE                                                                              
+        30 SALES                7654 MARTIN                                                                             
+        30 SALES                7521 WARD                                                                               
+        30 SALES                7499 ALLEN                                                                              
+
+14 rows selected.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  select d.deptno,d.dname,e.empno,e.ename from dept1 d,emp1 e where d.deptno(+)=e.deptno
+  2  union 
+  3* select d.deptno,d.dname,e.empno,e.ename from dept1 d,emp1 e where d.deptno=e.deptno(+)
+SQL> /
+
+    DEPTNO DNAME               EMPNO ENAME                                                                              
+---------- -------------- ---------- ----------                                                                         
+        10 ACCOUNTING           7782 CLARK                                                                              
+        10 ACCOUNTING           7839 KING                                                                               
+        10 ACCOUNTING           7934 MILLER                                                                             
+        20 RESEARCH             7369 SMITH                                                                              
+        20 RESEARCH             7566 JONES                                                                              
+        20 RESEARCH             7788 SCOTT                                                                              
+        20 RESEARCH             7876 ADAMS                                                                              
+        20 RESEARCH             7902 FORD                                                                               
+        30 SALES                7499 ALLEN                                                                              
+        30 SALES                7521 WARD                                                                               
+        30 SALES                7654 MARTIN                                                                             
+        30 SALES                7698 BLAKE                                                                              
+        30 SALES                7844 TURNER                                                                             
+        30 SALES                7900 JAMES                                                                              
+        40 OPERATIONS                                                                                                   
+
+15 rows selected.
+
+SQL> select ename"EMPLOYEE",m.ename"MANAGER" from emp1 e,emp1 m where e.mgr=m.empno;
+select ename"EMPLOYEE",m.ename"MANAGER" from emp1 e,emp1 m where e.mgr=m.empno
+       *
+ERROR at line 1:
+ORA-00918: column ambiguously defined 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select e.ename"EMPLOYEE",m.ename"MANAGER" from emp1 e,emp1 m where e.mgr=m.empno
+SQL> /
+
+EMPLOYEE   MANAGER                                                                                                      
+---------- ----------                                                                                                   
+FORD       JONES                                                                                                        
+SCOTT      JONES                                                                                                        
+JAMES      BLAKE                                                                                                        
+TURNER     BLAKE                                                                                                        
+MARTIN     BLAKE                                                                                                        
+WARD       BLAKE                                                                                                        
+ALLEN      BLAKE                                                                                                        
+MILLER     CLARK                                                                                                        
+ADAMS      SCOTT                                                                                                        
+CLARK      KING                                                                                                         
+BLAKE      KING                                                                                                         
+JONES      KING                                                                                                         
+SMITH      FORD                                                                                                         
+
+13 rows selected.
+
+SQL> spool off

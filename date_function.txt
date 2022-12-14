@@ -1,0 +1,157 @@
+SQL> select add_months(sysdate,1) from dual;
+
+ADD_MONTH                                                                                                               
+---------                                                                                                               
+25-SEP-21                                                                                                               
+
+SQL> select last_day (sysdate) from dual;
+
+LAST_DAY(                                                                                                               
+---------                                                                                                               
+31-AUG-21                                                                                                               
+
+SQL> select months_between('01-jan-2021',sysdate) from dual;
+
+MONTHS_BETWEEN('01-JAN-2021',SYSDATE)                                                                                   
+-------------------------------------                                                                                   
+                           -7.7865319                                                                                   
+
+SQL> select months_between(sysdate,'01-jna-2021') from dual;
+select months_between(sysdate,'01-jna-2021') from dual
+                              *
+ERROR at line 1:
+ORA-01843: not a valid month 
+
+
+SQL> select next_day(sysdate,'monday') from dual;
+
+NEXT_DAY(                                                                                                               
+---------                                                                                                               
+30-AUG-21                                                                                                               
+
+SQL> select round(sysdate,'year') from dual;
+
+ROUND(SYS                                                                                                               
+---------                                                                                                               
+01-JAN-22                                                                                                               
+
+SQL> select round (sysdate,'month') from dual;
+
+ROUND(SYS                                                                                                               
+---------                                                                                                               
+01-SEP-21                                                                                                               
+
+SQL> select systimestamp from dual;
+
+SYSTIMESTAMP                                                                                                            
+---------------------------------------------------------------------------                                             
+25-AUG-21 09.13.51.488000 AM +05:30                                                                                     
+
+SQL> select trunc (sysdate,'year') from dual;
+
+TRUNC(SYS                                                                                                               
+---------                                                                                                               
+01-JAN-21                                                                                                               
+
+SQL> select to_date('2021/08/05','yyyy/mm/dd') from dual;
+
+TO_DATE('                                                                                                               
+---------                                                                                                               
+05-AUG-21                                                                                                               
+
+SQL> select to_char(sysdate,'mm/dd/yy')from dual;
+
+TO_CHAR(                                                                                                                
+--------                                                                                                                
+08/25/21                                                                                                                
+
+SQL> create table stud
+  2  (rno number(3),
+  3  Name varchar2(20),
+  4  City varchar2(20)
+  5  );
+
+Table created.
+
+SQL> savepoint s1;
+
+Savepoint created.
+
+SQL> insert into stud values(1,'Aaa','Junagadh');
+
+1 row created.
+
+SQL> savepoint s2;
+
+Savepoint created.
+
+SQL> select * from stud;
+
+       RNO NAME                 CITY                                                                                    
+---------- -------------------- --------------------                                                                    
+         1 Aaa                  Junagadh                                                                                
+
+SQL> update stud set name='Amar' where rno=1;
+
+1 row updated.
+
+SQL> savaepoint s3;
+SP2-0734: unknown command beginning "savaepoint..." - rest of line ignored.
+SQL> savepoint s3;
+
+Savepoint created.
+
+SQL> rollback to s2;
+
+Rollback complete.
+
+SQL> select * from stud;
+
+       RNO NAME                 CITY                                                                                    
+---------- -------------------- --------------------                                                                    
+         1 Aaa                  Junagadh                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> create table e1 as select * from emp1;
+
+Table created.
+
+SQL> select * from e1;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                   
+
+14 rows selected.
+
+SQL> create view empview as select * from e1;
+create view empview as select * from e1
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> create view emp1view as select * from e1;
+create view emp1view as select * from e1
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> spool off

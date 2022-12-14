@@ -1,0 +1,48 @@
+SQL> ed m1
+
+SQL> ed m2
+
+SQL> @ m2
+  4  /
+WELCOME TO ORACLE                                                                                                       
+
+PL/SQL procedure successfully completed.
+
+SQL> ed m3
+
+SQL> @ M3
+  6  /
+WELCOME  TO ORACLE                                                                                                      
+WELCOME TO B.C.A                                                                                                        
+WELCOME TO SEM-3                                                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> ED M4
+
+SQL> @ M4
+  7  /
+Enter value for name: MUKESH
+old   4: 	NAME='&NAME';
+new   4: 	NAME='MUKESH';
+	NAME='MUKESH';
+	    *
+ERROR at line 4:
+ORA-06550: line 4, column 6: 
+PLS-00103: Encountered the symbol "=" when expecting one of the following: 
+:= . ( @ % ; 
+The symbol ":= was inserted before "=" to continue. 
+
+
+SQL> ED M4
+
+SQL> @ M4
+  7  /
+Enter value for name: MUKESH
+old   4: 	NAME:='&NAME';
+new   4: 	NAME:='MUKESH';
+NAME IS :MUKESH                                                                                                         
+
+PL/SQL procedure successfully completed.
+
+SQL> SPOOL OFF

@@ -1,0 +1,1061 @@
+SQL> create view empview1 as select * from e1;
+create view empview1 as select * from e1
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> connect scott/tiger;
+Connected.
+SQL> grant connect to mukesh;
+
+Grant succeeded.
+
+SQL> grant resource to mukesh;
+
+Grant succeeded.
+
+SQL> connect mukesh\mk;
+ERROR:
+ORA-01005: null password given; logon denied 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> connect mukesh/mk;
+Connected.
+SQL> create view empview1 as select * from e1;
+create view empview1 as select * from e1
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> connect sys as sysdba;
+Connected.
+SQL> grant dba to scott;
+
+Grant succeeded.
+
+SQL> connect mukesh/mk;
+Connected.
+SQL> create view empview1 as select * from e1;
+create view empview1 as select * from e1
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges 
+
+
+SQL> connect scott/tiger;
+Connected.
+SQL>  connect sys as sysdba;
+Connected.
+SQL> cle scr.
+SP2-0158: unknown CLEAR option "."
+SQL> cle scr;
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+ICOL$                          TABLE            4                                                                       
+CON$                           TABLE                                                                                    
+UNDO$                          TABLE                                                                                    
+C_COBJ#                        CLUSTER                                                                                  
+PROXY_ROLE_DATA$               TABLE                                                                                    
+FILE$                          TABLE                                                                                    
+UET$                           TABLE            1                                                                       
+IND$                           TABLE            3                                                                       
+SEG$                           TABLE            2                                                                       
+C_TS#                          CLUSTER                                                                                  
+COL$                           TABLE            5                                                                       
+CLU$                           TABLE            2                                                                       
+PROXY_DATA$                    TABLE                                                                                    
+TS$                            TABLE            2                                                                       
+C_FILE#_BLOCK#                 CLUSTER                                                                                  
+C_USER#                        CLUSTER                                                                                  
+BOOTSTRAP$                     TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+FET$                           TABLE            1                                                                       
+CCOL$                          TABLE            2                                                                       
+USER$                          TABLE            1                                                                       
+OBJ$                           TABLE                                                                                    
+C_OBJ#                         CLUSTER                                                                                  
+TAB$                           TABLE            1                                                                       
+CDEF$                          TABLE            1                                                                       
+OBJAUTH$                       TABLE                                                                                    
+UGROUP$                        TABLE                                                                                    
+TSQ$                           TABLE            2                                                                       
+SYN$                           TABLE                                                                                    
+VIEW$                          TABLE                                                                                    
+TYPED_VIEW$                    TABLE                                                                                    
+SUPEROBJ$                      TABLE                                                                                    
+SEQ$                           TABLE                                                                                    
+PROCEDURE$                     TABLE                                                                                    
+PROCEDUREINFO$                 TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+ARGUMENT$                      TABLE                                                                                    
+SOURCE$                        TABLE                                                                                    
+IDL_UB1$                       TABLE                                                                                    
+IDL_CHAR$                      TABLE                                                                                    
+IDL_UB2$                       TABLE                                                                                    
+IDL_SB4$                       TABLE                                                                                    
+DIR$                           TABLE                                                                                    
+JAVAOBJ$                       TABLE                                                                                    
+ERROR$                         TABLE                                                                                    
+SETTINGS$                      TABLE                                                                                    
+TRIGGER$                       TABLE                                                                                    
+TRIGGERCOL$                    TABLE                                                                                    
+TRIGGERJAVAF$                  TABLE                                                                                    
+TRIGGERJAVAS$                  TABLE                                                                                    
+TRIGGERJAVAC$                  TABLE                                                                                    
+TRIGGERJAVAM$                  TABLE                                                                                    
+SYSAUTH$                       TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+OBJPRIV$                       TABLE                                                                                    
+DEFROLE$                       TABLE                                                                                    
+PROFILE$                       TABLE                                                                                    
+PROFNAME$                      TABLE                                                                                    
+DEPENDENCY$                    TABLE                                                                                    
+ACCESS$                        TABLE                                                                                    
+LINK$                          TABLE                                                                                    
+TRUSTED_LIST$                  TABLE                                                                                    
+PROPS$                         TABLE                                                                                    
+COM$                           TABLE                                                                                    
+RESOURCE_COST$                 TABLE                                                                                    
+INCEXP                         TABLE                                                                                    
+INCVID                         TABLE                                                                                    
+INCFIL                         TABLE                                                                                    
+_default_auditing_options_     TABLE                                                                                    
+AUDIT$                         TABLE                                                                                    
+PENDING_TRANS$                 TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+PENDING_SESSIONS$              TABLE                                                                                    
+PENDING_SUB_SESSIONS$          TABLE                                                                                    
+LOB$                           TABLE            6                                                                       
+SUMPARTLOG$                    TABLE                                                                                    
+SUMDELTA$                      TABLE                                                                                    
+SNAP_LOGDEP$                   TABLE                                                                                    
+SNAP_LOADERTIME$               TABLE                                                                                    
+C_MLOG#                        CLUSTER                                                                                  
+MLOG$                          TABLE            1                                                                       
+SLOG$                          TABLE            2                                                                       
+COLTYPE$                       TABLE            7                                                                       
+SUBCOLTYPE$                    TABLE            8                                                                       
+ATTRCOL$                       TABLE            9                                                                       
+VIEWTRCOL$                     TABLE           10                                                                       
+ID_GENS$                       TABLE                                                                                    
+OID$                           TABLE                                                                                    
+TYPE_MISC$                     TABLE           11                                                                       
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+C_TOID_VERSION#                CLUSTER                                                                                  
+TYPE$                          TABLE            1                                                                       
+TYPEHIERARCHY$                 TABLE                                                                                    
+COLLECTION$                    TABLE            2                                                                       
+ATTRIBUTE$                     TABLE            3                                                                       
+METHOD$                        TABLE            4                                                                       
+PARAMETER$                     TABLE            5                                                                       
+NTAB$                          TABLE           12                                                                       
+REFCON$                        TABLE           13                                                                       
+OPQTYPE$                       TABLE           14                                                                       
+VIEWCON$                       TABLE                                                                                    
+SNAP$                          TABLE                                                                                    
+SNAP_REFTIME$                  TABLE                                                                                    
+MLOG_REFCOL$                   TABLE                                                                                    
+SNAP_REFOP$                    TABLE                                                                                    
+SNAP_COLMAP$                   TABLE                                                                                    
+SNAP_OBJCOL$                   TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+REG_SNAP$                      TABLE                                                                                    
+SNAP_SITE$                     TABLE                                                                                    
+JOB$                           TABLE                                                                                    
+C_RG#                          CLUSTER                                                                                  
+RGROUP$                        TABLE            1                                                                       
+RGCHILD$                       TABLE            2                                                                       
+DUC$                           TABLE                                                                                    
+C_OBJ#_INTCOL#                 CLUSTER                                                                                  
+HISTGRM$                       TABLE            1                                                                       
+HIST_HEAD$                     TABLE                                                                                    
+DUAL                           TABLE                                                                                    
+PARTOBJ$                       TABLE                                                                                    
+PARTCOL$                       TABLE                                                                                    
+TABPART$                       TABLE                                                                                    
+INDPART$                       TABLE                                                                                    
+SUBPARTCOL$                    TABLE                                                                                    
+TABSUBPART$                    TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+INDSUBPART$                    TABLE                                                                                    
+TABCOMPART$                    TABLE                                                                                    
+INDCOMPART$                    TABLE                                                                                    
+PARTLOB$                       TABLE                                                                                    
+LOBFRAG$                       TABLE                                                                                    
+LOBCOMPPART$                   TABLE                                                                                    
+DEFSUBPART$                    TABLE                                                                                    
+DEFSUBPARTLOB$                 TABLE                                                                                    
+SYSTEM_PRIVILEGE_MAP           TABLE                                                                                    
+TABLE_PRIVILEGE_MAP            TABLE                                                                                    
+STMT_AUDIT_OPTION_MAP          TABLE                                                                                    
+RESOURCE_MAP                   TABLE                                                                                    
+USER_ASTATUS_MAP               TABLE                                                                                    
+EXPACT$                        TABLE                                                                                    
+NOEXP$                         TABLE                                                                                    
+PROCEDUREJAVA$                 TABLE                                                                                    
+PROCEDUREC$                    TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+PROCEDUREPLSQL$                TABLE                                                                                    
+RESULT$                        TABLE            6                                                                       
+KOTTD$                         TABLE                                                                                    
+KOTTB$                         TABLE                                                                                    
+KOTAD$                         TABLE                                                                                    
+KOTMD$                         TABLE                                                                                    
+KOTTBX$                        TABLE                                                                                    
+KOTADX$                        TABLE                                                                                    
+KOPM$                          TABLE                                                                                    
+VTABLE$                        TABLE                                                                                    
+ATEMPTAB$                      TABLE                                                                                    
+LIBRARY$                       TABLE           15                                                                       
+USER_HISTORY$                  TABLE                                                                                    
+MIGRATE$                       TABLE                                                                                    
+ICOLDEP$                       TABLE           16                                                                       
+OPERATOR$                      TABLE                                                                                    
+OPBINDING$                     TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+OPANCILLARY$                   TABLE                                                                                    
+OPARG$                         TABLE                                                                                    
+INDTYPES$                      TABLE                                                                                    
+INDOP$                         TABLE                                                                                    
+INDARRAYTYPE$                  TABLE                                                                                    
+SECOBJ$                        TABLE                                                                                    
+ASSOCIATION$                   TABLE                                                                                    
+USTATS$                        TABLE                                                                                    
+JAVASNM$                       TABLE                                                                                    
+SUM$                           TABLE                                                                                    
+SUMDETAIL$                     TABLE                                                                                    
+SUMINLINE$                     TABLE                                                                                    
+SUMKEY$                        TABLE                                                                                    
+SUMAGG$                        TABLE                                                                                    
+SUMJOIN$                       TABLE                                                                                    
+SUMDEP$                        TABLE                                                                                    
+SUMPRED$                       TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+SUMQB$                         TABLE                                                                                    
+DIM$                           TABLE                                                                                    
+DIMLEVEL$                      TABLE                                                                                    
+DIMLEVELKEY$                   TABLE                                                                                    
+DIMJOINKEY$                    TABLE                                                                                    
+DIMATTR$                       TABLE                                                                                    
+HIER$                          TABLE                                                                                    
+HIERLEVEL$                     TABLE                                                                                    
+RLS$                           TABLE                                                                                    
+RLS_SC$                        TABLE                                                                                    
+RLS_GRP$                       TABLE                                                                                    
+RLS_CTX$                       TABLE                                                                                    
+CONTEXT$                       TABLE                                                                                    
+RULESET$                       TABLE                                                                                    
+INDPART_PARAM$                 TABLE                                                                                    
+SQL$                           TABLE                                                                                    
+SQL$TEXT                       TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+SQLPROF$                       TABLE                                                                                    
+SQLPROF$DESC                   TABLE                                                                                    
+SQLPROF$ATTR                   TABLE                                                                                    
+EXPPKGOBJ$                     TABLE                                                                                    
+EXPPKGACT$                     TABLE                                                                                    
+EXPDEPOBJ$                     TABLE                                                                                    
+EXPDEPACT$                     TABLE                                                                                    
+MON_MODS$                      TABLE                                                                                    
+MON_MODS_ALL$                  TABLE                                                                                    
+METAVIEW$                      TABLE                                                                                    
+METAFILTER$                    TABLE                                                                                    
+METAXSL$                       TABLE                                                                                    
+METAXSLPARAM$                  TABLE                                                                                    
+METASTYLESHEET                 TABLE                                                                                    
+METASCRIPT$                    TABLE                                                                                    
+METASCRIPTFILTER$              TABLE                                                                                    
+METANAMETRANS$                 TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+METAPATHMAP$                   TABLE                                                                                    
+EXTERNAL_TAB$                  TABLE                                                                                    
+EXTERNAL_LOCATION$             TABLE                                                                                    
+SQL_VERSION$                   TABLE                                                                                    
+COL_USAGE$                     TABLE                                                                                    
+CDC_SYSTEM$                    TABLE                                                                                    
+CDC_CHANGE_SOURCES$            TABLE                                                                                    
+CDC_CHANGE_SETS$               TABLE                                                                                    
+CDC_CHANGE_TABLES$             TABLE                                                                                    
+CDC_SUBSCRIBERS$               TABLE                                                                                    
+CDC_SUBSCRIBED_TABLES$         TABLE                                                                                    
+CDC_SUBSCRIBED_COLUMNS$        TABLE                                                                                    
+CDC_CHANGE_COLUMNS$            TABLE                                                                                    
+CDC_PROPAGATIONS$              TABLE                                                                                    
+CDC_PROPAGATED_SETS$           TABLE                                                                                    
+JIJOIN$                        TABLE                                                                                    
+JIREFRESHSQL$                  TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+LOG$                           TABLE                                                                                    
+APPROLE$                       TABLE                                                                                    
+FGA$                           TABLE                                                                                    
+FGACOL$                        TABLE                                                                                    
+AUD$                           TABLE                                                                                    
+FGA_LOG$                       TABLE                                                                                    
+OBJECT_USAGE                   TABLE                                                                                    
+AUX_STATS$                     TABLE                                                                                    
+SMON_SCN_TO_TIME               CLUSTER                                                                                  
+SMON_SCN_TIME                  TABLE            1                                                                       
+AW$                            TABLE                                                                                    
+PS$                            TABLE                                                                                    
+AW_OBJ$                        TABLE                                                                                    
+AW_PROP$                       TABLE                                                                                    
+MAP_FILE$                      TABLE                                                                                    
+MAP_FILE_EXTENT$               TABLE                                                                                    
+MAP_SUBELEMENT$                TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+MAP_ELEMENT$                   TABLE                                                                                    
+MAP_EXTELEMENT$                TABLE                                                                                    
+MAP_COMPLIST$                  TABLE                                                                                    
+MAP_OBJECT                     TABLE                                                                                    
+STREAMS$_CAPTURE_PROCESS       TABLE                                                                                    
+STREAMS$_APPLY_PROCESS         TABLE                                                                                    
+STREAMS$_PROPAGATION_PROCESS   TABLE                                                                                    
+STREAMS$_PROCESS_PARAMS        TABLE                                                                                    
+STREAMS$_EXTRA_ATTRS           TABLE                                                                                    
+STREAMS$_PREPARE_OBJECT        TABLE                                                                                    
+STREAMS$_PREPARE_DDL           TABLE                                                                                    
+STREAMS$_APPLY_MILESTONE       TABLE                                                                                    
+STREAMS$_APPLY_PROGRESS        TABLE                                                                                    
+STREAMS$_KEY_COLUMNS           TABLE                                                                                    
+STREAMS$_DEF_PROC              TABLE                                                                                    
+STREAMS$_RULES                 TABLE                                                                                    
+APPLY$_SOURCE_OBJ              TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+APPLY$_SOURCE_SCHEMA           TABLE                                                                                    
+APPLY$_VIRTUAL_OBJ_CONS        TABLE                                                                                    
+APPLY$_CONSTRAINT_COLUMNS      TABLE                                                                                    
+APPLY$_DEST_OBJ                TABLE                                                                                    
+APPLY$_DEST_OBJ_CMAP           TABLE                                                                                    
+APPLY$_DEST_OBJ_OPS            TABLE                                                                                    
+APPLY$_ERROR                   TABLE                                                                                    
+APPLY$_ERROR_TXN               TABLE                                                                                    
+APPLY$_ERROR_HANDLER           TABLE                                                                                    
+APPLY$_CONF_HDLR_COLUMNS       TABLE                                                                                    
+STREAMS$_DEST_OBJS             TABLE                                                                                    
+STREAMS$_DEST_OBJ_COLS         TABLE                                                                                    
+STREAMS$_PRIVILEGED_USER       TABLE                                                                                    
+STREAMS$_MESSAGE_RULES         TABLE                                                                                    
+WARNING_SETTINGS$              TABLE                                                                                    
+STREAMS$_MESSAGE_CONSUMERS     TABLE                                                                                    
+STREAMS$_APPLY_SPILL_TXN       TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+STREAMS$_APPLY_SPILL_TXN_LIST  TABLE                                                                                    
+FGR$_FILE_GROUPS               TABLE                                                                                    
+FGR$_FILE_GROUP_VERSIONS       TABLE                                                                                    
+FGR$_FILE_GROUP_EXPORT_INFO    TABLE                                                                                    
+FGR$_FILE_GROUP_FILES          TABLE                                                                                    
+FGR$_TABLESPACE_INFO           TABLE                                                                                    
+FGR$_TABLE_INFO                TABLE                                                                                    
+RECYCLEBIN$                    TABLE                                                                                    
+FIXED_OBJ$                     TABLE                                                                                    
+TAB_STATS$                     TABLE                                                                                    
+IND_STATS$                     TABLE                                                                                    
+PROXY_INFO$                    TABLE                                                                                    
+PROXY_ROLE_INFO$               TABLE                                                                                    
+REDEF$                         TABLE                                                                                    
+REDEF_OBJECT$                  TABLE                                                                                    
+REDEF_DEP_ERROR$               TABLE                                                                                    
+NCOMP_DLL$                     TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+IND_ONLINE$                    TABLE                                                                                    
+SERVICE$                       TABLE                                                                                    
+EXPIMP_TTS_CT$                 TABLE                                                                                    
+TSM_SRC$                       TABLE                                                                                    
+TSM_DST$                       TABLE                                                                                    
+CLUSTER_DATABASES              TABLE                                                                                    
+CLUSTER_NODES                  TABLE                                                                                    
+CLUSTER_INSTANCES              TABLE                                                                                    
+DIR$MIGRATE_OPERATIONS         TABLE                                                                                    
+DIR$SERVICE_OPERATIONS         TABLE                                                                                    
+DIR$ESCALATE_OPERATIONS        TABLE                                                                                    
+DIR$QUIESCE_OPERATIONS         TABLE                                                                                    
+DIR$INSTANCE_ACTIONS           TABLE                                                                                    
+DIR$RESONATE_OPERATIONS        TABLE                                                                                    
+DIR$ALERT_HISTORY              TABLE                                                                                    
+DIR$REASON_STRINGS             TABLE                                                                                    
+DIR$DATABASE_ATTRIBUTES        TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+DIR$VICTIM_POLICY              TABLE                                                                                    
+DIR$NODE_ATTRIBUTES            TABLE                                                                                    
+DIR$SERVICE_ATTRIBUTES         TABLE                                                                                    
+CACHE_STATS_1$                 TABLE                                                                                    
+CACHE_STATS_0$                 TABLE                                                                                    
+STATS_TARGET$                  TABLE                                                                                    
+RESOURCE_PLAN$                 TABLE                                                                                    
+RESOURCE_CONSUMER_GROUP$       TABLE                                                                                    
+RESOURCE_PLAN_DIRECTIVE$       TABLE                                                                                    
+RESOURCE_GROUP_MAPPING$        TABLE                                                                                    
+RESOURCE_MAPPING_PRIORITY$     TABLE                                                                                    
+ENC$                           TABLE                                                                                    
+RECO_SCRIPT$                   TABLE                                                                                    
+RECO_SCRIPT_PARAMS$            TABLE                                                                                    
+RECO_SCRIPT_BLOCK$             TABLE                                                                                    
+RECO_SCRIPT_ERROR$             TABLE                                                                                    
+REGISTRY$                      TABLE                                                                                    
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+REGISTRY$SCHEMAS               TABLE                                                                                    
+REGISTRY$LOG                   TABLE                                                                                    
+REGISTRY$HISTORY               TABLE                                                                                    
+V_$MAP_LIBRARY                 VIEW                                                                                     
+V_$MAP_FILE                    VIEW                                                                                     
+V_$MAP_FILE_EXTENT             VIEW                                                                                     
+V_$MAP_ELEMENT                 VIEW                                                                                     
+V_$MAP_EXT_ELEMENT             VIEW                                                                                     
+V_$MAP_COMP_LIST               VIEW                                                                                     
+V_$MAP_SUBELEMENT              VIEW                                                                                     
+V_$MAP_FILE_IO_STACK           VIEW                                                                                     
+V_$SQL_REDIRECTION             VIEW                                                                                     
+V_$SQL_PLAN                    VIEW                                                                                     
+V_$SQL_PLAN_STATISTICS         VIEW                                                                                     
+V_$SQL_PLAN_STATISTICS_ALL     VIEW                                                                                     
+V_$SQL_WORKAREA                VIEW                                                                                     
+V_$SQL_WORKAREA_ACTIVE         VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$SQL_WORKAREA_HISTOGRAM      VIEW                                                                                     
+V_$PGA_TARGET_ADVICE           VIEW                                                                                     
+V_$PGA_TARGET_ADVICE_HISTOGRAM VIEW                                                                                     
+V_$PGASTAT                     VIEW                                                                                     
+V_$SYS_OPTIMIZER_ENV           VIEW                                                                                     
+V_$SES_OPTIMIZER_ENV           VIEW                                                                                     
+V_$SQL_OPTIMIZER_ENV           VIEW                                                                                     
+V_$DLM_MISC                    VIEW                                                                                     
+V_$DLM_LATCH                   VIEW                                                                                     
+V_$DLM_CONVERT_LOCAL           VIEW                                                                                     
+V_$DLM_CONVERT_REMOTE          VIEW                                                                                     
+V_$DLM_ALL_LOCKS               VIEW                                                                                     
+V_$DLM_LOCKS                   VIEW                                                                                     
+V_$DLM_RESS                    VIEW                                                                                     
+V_$HVMASTER_INFO               VIEW                                                                                     
+V_$GCSHVMASTER_INFO            VIEW                                                                                     
+V_$GCSPFMASTER_INFO            VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$DLM_TRAFFIC_CONTROLLER     VIEW                                                                                     
+V_$DLM_TRAFFIC_CONTROLLER      VIEW                                                                                     
+V_$GES_ENQUEUE                 VIEW                                                                                     
+V_$GES_BLOCKING_ENQUEUE        VIEW                                                                                     
+V_$GC_ELEMENT                  VIEW                                                                                     
+V_$CR_BLOCK_SERVER             VIEW                                                                                     
+V_$CURRENT_BLOCK_SERVER        VIEW                                                                                     
+V_$GC_ELEMENTS_W_COLLISIONS    VIEW                                                                                     
+V_$FILE_CACHE_TRANSFER         VIEW                                                                                     
+V_$TEMP_CACHE_TRANSFER         VIEW                                                                                     
+V_$CLASS_CACHE_TRANSFER        VIEW                                                                                     
+V_$BH                          VIEW                                                                                     
+V_$LOCK_ELEMENT                VIEW                                                                                     
+V_$LOCKS_WITH_COLLISIONS       VIEW                                                                                     
+V_$FILE_PING                   VIEW                                                                                     
+V_$TEMP_PING                   VIEW                                                                                     
+V_$CLASS_PING                  VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$INSTANCE_CACHE_TRANSFER     VIEW                                                                                     
+V_$BUFFER_POOL                 VIEW                                                                                     
+V_$BUFFER_POOL_STATISTICS      VIEW                                                                                     
+V_$INSTANCE_RECOVERY           VIEW                                                                                     
+V_$CONTROLFILE                 VIEW                                                                                     
+V_$LOG                         VIEW                                                                                     
+V_$STANDBY_LOG                 VIEW                                                                                     
+V_$DATAGUARD_STATUS            VIEW                                                                                     
+V_$THREAD                      VIEW                                                                                     
+V_$PROCESS                     VIEW                                                                                     
+V_$BGPROCESS                   VIEW                                                                                     
+V_$SESSION                     VIEW                                                                                     
+V_$LICENSE                     VIEW                                                                                     
+V_$TRANSACTION                 VIEW                                                                                     
+V_$BSP                         VIEW                                                                                     
+V_$FAST_START_SERVERS          VIEW                                                                                     
+V_$FAST_START_TRANSACTIONS     VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$LOCKED_OBJECT               VIEW                                                                                     
+V_$LATCH                       VIEW                                                                                     
+V_$LATCH_CHILDREN              VIEW                                                                                     
+V_$LATCH_PARENT                VIEW                                                                                     
+V_$LATCHNAME                   VIEW                                                                                     
+V_$LATCHHOLDER                 VIEW                                                                                     
+V_$LATCH_MISSES                VIEW                                                                                     
+V_$SESSION_LONGOPS             VIEW                                                                                     
+V_$RESOURCE                    VIEW                                                                                     
+V_$_LOCK                       VIEW                                                                                     
+V_$LOCK                        VIEW                                                                                     
+V_$SESSTAT                     VIEW                                                                                     
+V_$MYSTAT                      VIEW                                                                                     
+V_$SUBCACHE                    VIEW                                                                                     
+V_$SYSSTAT                     VIEW                                                                                     
+V_$STATNAME                    VIEW                                                                                     
+V_$OSSTAT                      VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$ACCESS                      VIEW                                                                                     
+V_$OBJECT_DEPENDENCY           VIEW                                                                                     
+V_$DBFILE                      VIEW                                                                                     
+V_$FILESTAT                    VIEW                                                                                     
+V_$TEMPSTAT                    VIEW                                                                                     
+V_$LOGFILE                     VIEW                                                                                     
+V_$FLASHBACK_DATABASE_LOGFILE  VIEW                                                                                     
+V_$FLASHBACK_DATABASE_LOG      VIEW                                                                                     
+V_$FLASHBACK_DATABASE_STAT     VIEW                                                                                     
+V_$RESTORE_POINT               VIEW                                                                                     
+V_$ROLLNAME                    VIEW                                                                                     
+V_$ROLLSTAT                    VIEW                                                                                     
+V_$UNDOSTAT                    VIEW                                                                                     
+V_$SGA                         VIEW                                                                                     
+V_$CLUSTER_INTERCONNECTS       VIEW                                                                                     
+V_$CONFIGURED_INTERCONNECTS    VIEW                                                                                     
+V_$PARAMETER                   VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$PARAMETER2                  VIEW                                                                                     
+V_$OBSOLETE_PARAMETER          VIEW                                                                                     
+V_$SYSTEM_PARAMETER            VIEW                                                                                     
+V_$SYSTEM_PARAMETER2           VIEW                                                                                     
+V_$SPPARAMETER                 VIEW                                                                                     
+V_$PARAMETER_VALID_VALUES      VIEW                                                                                     
+V_$ROWCACHE                    VIEW                                                                                     
+V_$ROWCACHE_PARENT             VIEW                                                                                     
+V_$ROWCACHE_SUBORDINATE        VIEW                                                                                     
+V_$ENABLEDPRIVS                VIEW                                                                                     
+V_$NLS_PARAMETERS              VIEW                                                                                     
+V_$NLS_VALID_VALUES            VIEW                                                                                     
+V_$LIBRARYCACHE                VIEW                                                                                     
+V_$TYPE_SIZE                   VIEW                                                                                     
+V_$ARCHIVE                     VIEW                                                                                     
+V_$CIRCUIT                     VIEW                                                                                     
+V_$DATABASE                    VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$INSTANCE                    VIEW                                                                                     
+V_$DISPATCHER                  VIEW                                                                                     
+V_$DISPATCHER_CONFIG           VIEW                                                                                     
+V_$DISPATCHER_RATE             VIEW                                                                                     
+V_$LOGHIST                     VIEW                                                                                     
+V_$SQLAREA                     VIEW                                                                                     
+V_$SQLAREA_PLAN_HASH           VIEW                                                                                     
+V_$SQLTEXT                     VIEW                                                                                     
+V_$SQLTEXT_WITH_NEWLINES       VIEW                                                                                     
+V_$SQL                         VIEW                                                                                     
+V_$SQL_SHARED_CURSOR           VIEW                                                                                     
+V_$DB_PIPES                    VIEW                                                                                     
+V_$DB_OBJECT_CACHE             VIEW                                                                                     
+V_$OPEN_CURSOR                 VIEW                                                                                     
+V_$OPTION                      VIEW                                                                                     
+V_$VERSION                     VIEW                                                                                     
+V_$PQ_SESSTAT                  VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$PQ_SYSSTAT                  VIEW                                                                                     
+V_$PQ_SLAVE                    VIEW                                                                                     
+V_$QUEUE                       VIEW                                                                                     
+V_$SHARED_SERVER_MONITOR       VIEW                                                                                     
+V_$DBLINK                      VIEW                                                                                     
+V_$PWFILE_USERS                VIEW                                                                                     
+V_$REQDIST                     VIEW                                                                                     
+V_$SGASTAT                     VIEW                                                                                     
+V_$SGAINFO                     VIEW                                                                                     
+V_$WAITSTAT                    VIEW                                                                                     
+V_$SHARED_SERVER               VIEW                                                                                     
+V_$TIMER                       VIEW                                                                                     
+V_$RECOVER_FILE                VIEW                                                                                     
+V_$BACKUP                      VIEW                                                                                     
+V_$BACKUP_SET                  VIEW                                                                                     
+V_$BACKUP_PIECE                VIEW                                                                                     
+V_$BACKUP_DATAFILE             VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$BACKUP_SPFILE               VIEW                                                                                     
+V_$BACKUP_REDOLOG              VIEW                                                                                     
+V_$BACKUP_CORRUPTION           VIEW                                                                                     
+V_$COPY_CORRUPTION             VIEW                                                                                     
+V_$DATABASE_BLOCK_CORRUPTION   VIEW                                                                                     
+V_$MTTR_TARGET_ADVICE          VIEW                                                                                     
+V_$STATISTICS_LEVEL            VIEW                                                                                     
+V_$DELETED_OBJECT              VIEW                                                                                     
+V_$PROXY_DATAFILE              VIEW                                                                                     
+V_$PROXY_ARCHIVEDLOG           VIEW                                                                                     
+V_$CONTROLFILE_RECORD_SECTION  VIEW                                                                                     
+V_$ARCHIVED_LOG                VIEW                                                                                     
+V_$OFFLINE_RANGE               VIEW                                                                                     
+V_$DATAFILE_COPY               VIEW                                                                                     
+V_$LOG_HISTORY                 VIEW                                                                                     
+V_$RECOVERY_LOG                VIEW                                                                                     
+V_$ARCHIVE_GAP                 VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$DATAFILE_HEADER             VIEW                                                                                     
+V_$DATAFILE                    VIEW                                                                                     
+V_$TEMPFILE                    VIEW                                                                                     
+V_$TABLESPACE                  VIEW                                                                                     
+V_$BACKUP_DEVICE               VIEW                                                                                     
+V_$MANAGED_STANDBY             VIEW                                                                                     
+V_$ARCHIVE_PROCESSES           VIEW                                                                                     
+V_$ARCHIVE_DEST                VIEW                                                                                     
+V_$DATAGUARD_CONFIG            VIEW                                                                                     
+V_$DATAGUARD_STATS             VIEW                                                                                     
+V_$FIXED_TABLE                 VIEW                                                                                     
+V_$FIXED_VIEW_DEFINITION       VIEW                                                                                     
+V_$INDEXED_FIXED_COLUMN        VIEW                                                                                     
+V_$SESSION_CURSOR_CACHE        VIEW                                                                                     
+V_$SESSION_WAIT_CLASS          VIEW                                                                                     
+V_$SESSION_WAIT                VIEW                                                                                     
+V_$SESSION_WAIT_HISTORY        VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$SESSION_EVENT               VIEW                                                                                     
+V_$SESSION_CONNECT_INFO        VIEW                                                                                     
+V_$SYSTEM_WAIT_CLASS           VIEW                                                                                     
+V_$SYSTEM_EVENT                VIEW                                                                                     
+V_$EVENT_NAME                  VIEW                                                                                     
+V_$EVENT_HISTOGRAM             VIEW                                                                                     
+V_$FILE_HISTOGRAM              VIEW                                                                                     
+V_$TEMP_HISTOGRAM              VIEW                                                                                     
+V_$EXECUTION                   VIEW                                                                                     
+V_$SYSTEM_CURSOR_CACHE         VIEW                                                                                     
+V_$SESS_IO                     VIEW                                                                                     
+V_$RECOVERY_STATUS             VIEW                                                                                     
+V_$RECOVERY_FILE_STATUS        VIEW                                                                                     
+V_$RECOVERY_PROGRESS           VIEW                                                                                     
+V_$SHARED_POOL_RESERVED        VIEW                                                                                     
+V_$SORT_SEGMENT                VIEW                                                                                     
+V_$SORT_USAGE                  VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$RESOURCE_LIMIT              VIEW                                                                                     
+V_$ENQUEUE_LOCK                VIEW                                                                                     
+V_$TRANSACTION_ENQUEUE         VIEW                                                                                     
+V_$PQ_TQSTAT                   VIEW                                                                                     
+V_$ACTIVE_INSTANCES            VIEW                                                                                     
+V_$SQL_CURSOR                  VIEW                                                                                     
+V_$SQL_BIND_METADATA           VIEW                                                                                     
+V_$SQL_BIND_DATA               VIEW                                                                                     
+V_$SQL_SHARED_MEMORY           VIEW                                                                                     
+V_$GLOBAL_TRANSACTION          VIEW                                                                                     
+V_$SESSION_OBJECT_CACHE        VIEW                                                                                     
+V_$KCCFE                       VIEW                                                                                     
+V_$KCCDI                       VIEW                                                                                     
+V_$LOCK_ACTIVITY               VIEW                                                                                     
+V_$AQ1                         VIEW                                                                                     
+V_$HS_AGENT                    VIEW                                                                                     
+V_$HS_SESSION                  VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$HS_PARAMETER                VIEW                                                                                     
+V_$RSRC_CONSUMER_GROUP_CPU_MTH VIEW                                                                                     
+V_$RSRC_PLAN_CPU_MTH           VIEW                                                                                     
+V_$RSRC_CONSUMER_GROUP         VIEW                                                                                     
+V_$RSRC_SESSION_INFO           VIEW                                                                                     
+V_$RSRC_PLAN                   VIEW                                                                                     
+V_$RSRC_CONS_GROUP_HISTORY     VIEW                                                                                     
+V_$RSRC_PLAN_HISTORY           VIEW                                                                                     
+V_$BLOCKING_QUIESCE            VIEW                                                                                     
+V_$PX_BUFFER_ADVICE            VIEW                                                                                     
+V_$PX_SESSION                  VIEW                                                                                     
+V_$PX_SESSTAT                  VIEW                                                                                     
+V_$BACKUP_SYNC_IO              VIEW                                                                                     
+V_$BACKUP_ASYNC_IO             VIEW                                                                                     
+V_$TEMPORARY_LOBS              VIEW                                                                                     
+V_$PX_PROCESS                  VIEW                                                                                     
+V_$PX_PROCESS_SYSSTAT          VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$LOGMNR_CONTENTS             VIEW                                                                                     
+V_$LOGMNR_PARAMETERS           VIEW                                                                                     
+V_$LOGMNR_DICTIONARY           VIEW                                                                                     
+V_$LOGMNR_LOGS                 VIEW                                                                                     
+V_$LOGMNR_STATS                VIEW                                                                                     
+V_$LOGMNR_DICTIONARY_LOAD      VIEW                                                                                     
+V_$RFS_THREAD                  VIEW                                                                                     
+V_$STANDBY_APPLY_SNAPSHOT      VIEW                                                                                     
+V_$GLOBAL_BLOCKED_LOCKS        VIEW                                                                                     
+V_$AW_OLAP                     VIEW                                                                                     
+V_$AW_CALC                     VIEW                                                                                     
+V_$AW_SESSION_INFO             VIEW                                                                                     
+GV_$AW_AGGREGATE_OP            VIEW                                                                                     
+V_$AW_AGGREGATE_OP             VIEW                                                                                     
+GV_$AW_ALLOCATE_OP             VIEW                                                                                     
+V_$AW_ALLOCATE_OP              VIEW                                                                                     
+V_$AW_LONGOPS                  VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$MAX_ACTIVE_SESS_TARGET_MTH  VIEW                                                                                     
+V_$ACTIVE_SESS_POOL_MTH        VIEW                                                                                     
+V_$PARALLEL_DEGREE_LIMIT_MTH   VIEW                                                                                     
+V_$QUEUEING_MTH                VIEW                                                                                     
+V_$RESERVED_WORDS              VIEW                                                                                     
+V_$ARCHIVE_DEST_STATUS         VIEW                                                                                     
+V_$DB_CACHE_ADVICE             VIEW                                                                                     
+V_$SGA_TARGET_ADVICE           VIEW                                                                                     
+V_$SEGMENT_STATISTICS          VIEW                                                                                     
+V_$SEGSTAT_NAME                VIEW                                                                                     
+V_$SEGSTAT                     VIEW                                                                                     
+V_$LIBRARY_CACHE_MEMORY        VIEW                                                                                     
+V_$JAVA_LIBRARY_CACHE_MEMORY   VIEW                                                                                     
+V_$SHARED_POOL_ADVICE          VIEW                                                                                     
+V_$JAVA_POOL_ADVICE            VIEW                                                                                     
+V_$STREAMS_POOL_ADVICE         VIEW                                                                                     
+V_$SGA_CURRENT_RESIZE_OPS      VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$SGA_RESIZE_OPS              VIEW                                                                                     
+V_$SGA_DYNAMIC_COMPONENTS      VIEW                                                                                     
+V_$SGA_DYNAMIC_FREE_MEMORY     VIEW                                                                                     
+V_$RESUMABLE                   VIEW                                                                                     
+V_$TIMEZONE_NAMES              VIEW                                                                                     
+V_$TIMEZONE_FILE               VIEW                                                                                     
+V_$ENQUEUE_STAT                VIEW                                                                                     
+V_$ENQUEUE_STATISTICS          VIEW                                                                                     
+V_$LOCK_TYPE                   VIEW                                                                                     
+V_$RMAN_CONFIGURATION          VIEW                                                                                     
+V_$DATABASE_INCARNATION        VIEW                                                                                     
+V_$METRIC                      VIEW                                                                                     
+V_$METRIC_HISTORY              VIEW                                                                                     
+V_$SYSMETRIC                   VIEW                                                                                     
+V_$SYSMETRIC_HISTORY           VIEW                                                                                     
+V_$METRICNAME                  VIEW                                                                                     
+V_$METRICGROUP                 VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$SERVICE_WAIT_CLASS          VIEW                                                                                     
+V_$SERVICE_EVENT               VIEW                                                                                     
+V_$ACTIVE_SERVICES             VIEW                                                                                     
+V_$SERVICES                    VIEW                                                                                     
+V_$SYSMETRIC_SUMMARY           VIEW                                                                                     
+V_$SESSMETRIC                  VIEW                                                                                     
+V_$FILEMETRIC                  VIEW                                                                                     
+V_$FILEMETRIC_HISTORY          VIEW                                                                                     
+V_$EVENTMETRIC                 VIEW                                                                                     
+V_$WAITCLASSMETRIC             VIEW                                                                                     
+V_$WAITCLASSMETRIC_HISTORY     VIEW                                                                                     
+V_$SERVICEMETRIC               VIEW                                                                                     
+V_$SERVICEMETRIC_HISTORY       VIEW                                                                                     
+V_$ADVISOR_PROGRESS            VIEW                                                                                     
+V_$XML_AUDIT_TRAIL             VIEW                                                                                     
+V_$SQL_JOIN_FILTER             VIEW                                                                                     
+V_$PROCESS_MEMORY              VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+V_$PROCESS_MEMORY_DETAIL       VIEW                                                                                     
+V_$PROCESS_MEMORY_DETAIL_PROG  VIEW                                                                                     
+V_$SQLSTATS                    VIEW                                                                                     
+V_$MUTEX_SLEEP                 VIEW                                                                                     
+V_$MUTEX_SLEEP_HISTORY         VIEW                                                                                     
+GV_$MUTEX_SLEEP                VIEW                                                                                     
+GV_$MUTEX_SLEEP_HISTORY        VIEW                                                                                     
+GV_$SQLSTATS                   VIEW                                                                                     
+GV_$MAP_LIBRARY                VIEW                                                                                     
+GV_$MAP_FILE                   VIEW                                                                                     
+GV_$MAP_FILE_EXTENT            VIEW                                                                                     
+GV_$MAP_ELEMENT                VIEW                                                                                     
+GV_$MAP_EXT_ELEMENT            VIEW                                                                                     
+GV_$MAP_COMP_LIST              VIEW                                                                                     
+GV_$MAP_SUBELEMENT             VIEW                                                                                     
+GV_$MAP_FILE_IO_STACK          VIEW                                                                                     
+GV_$BSP                        VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$OBSOLETE_PARAMETER         VIEW                                                                                     
+GV_$FAST_START_SERVERS         VIEW                                                                                     
+GV_$FAST_START_TRANSACTIONS    VIEW                                                                                     
+GV_$ENQUEUE_LOCK               VIEW                                                                                     
+GV_$TRANSACTION_ENQUEUE        VIEW                                                                                     
+GV_$RESOURCE_LIMIT             VIEW                                                                                     
+GV_$SQL_REDIRECTION            VIEW                                                                                     
+GV_$SQL_PLAN                   VIEW                                                                                     
+GV_$SQL_PLAN_STATISTICS        VIEW                                                                                     
+GV_$SQL_PLAN_STATISTICS_ALL    VIEW                                                                                     
+GV_$SQL_WORKAREA               VIEW                                                                                     
+GV_$SQL_WORKAREA_ACTIVE        VIEW                                                                                     
+GV_$SQL_WORKAREA_HISTOGRAM     VIEW                                                                                     
+GV_$PGA_TARGET_ADVICE          VIEW                                                                                     
+GV_$PGATARGET_ADVICE_HISTOGRAM VIEW                                                                                     
+GV_$PGASTAT                    VIEW                                                                                     
+GV_$SYS_OPTIMIZER_ENV          VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$SES_OPTIMIZER_ENV          VIEW                                                                                     
+GV_$SQL_OPTIMIZER_ENV          VIEW                                                                                     
+GV_$DLM_MISC                   VIEW                                                                                     
+GV_$DLM_LATCH                  VIEW                                                                                     
+GV_$DLM_CONVERT_LOCAL          VIEW                                                                                     
+GV_$DLM_CONVERT_REMOTE         VIEW                                                                                     
+GV_$DLM_ALL_LOCKS              VIEW                                                                                     
+GV_$DLM_LOCKS                  VIEW                                                                                     
+GV_$DLM_RESS                   VIEW                                                                                     
+GV_$HVMASTER_INFO              VIEW                                                                                     
+GV_$GCSHVMASTER_INFO           VIEW                                                                                     
+GV_$GCSPFMASTER_INFO           VIEW                                                                                     
+GV_$GES_ENQUEUE                VIEW                                                                                     
+GV_$GES_BLOCKING_ENQUEUE       VIEW                                                                                     
+GV_$GC_ELEMENT                 VIEW                                                                                     
+GV_$CR_BLOCK_SERVER            VIEW                                                                                     
+GV_$CURRENT_BLOCK_SERVER       VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$GC_ELEMENTS_W_COLLISIONS   VIEW                                                                                     
+GV_$FILE_CACHE_TRANSFER        VIEW                                                                                     
+GV_$TEMP_CACHE_TRANSFER        VIEW                                                                                     
+GV_$CLASS_CACHE_TRANSFER       VIEW                                                                                     
+GV_$BH                         VIEW                                                                                     
+GV_$LOCK_ELEMENT               VIEW                                                                                     
+GV_$LOCKS_WITH_COLLISIONS      VIEW                                                                                     
+GV_$FILE_PING                  VIEW                                                                                     
+GV_$TEMP_PING                  VIEW                                                                                     
+GV_$CLASS_PING                 VIEW                                                                                     
+GV_$INSTANCE_CACHE_TRANSFER    VIEW                                                                                     
+GV_$BUFFER_POOL                VIEW                                                                                     
+GV_$BUFFER_POOL_STATISTICS     VIEW                                                                                     
+GV_$INSTANCE_RECOVERY          VIEW                                                                                     
+GV_$CONTROLFILE                VIEW                                                                                     
+GV_$LOG                        VIEW                                                                                     
+GV_$STANDBY_LOG                VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$DATAGUARD_STATUS           VIEW                                                                                     
+GV_$THREAD                     VIEW                                                                                     
+GV_$PROCESS                    VIEW                                                                                     
+GV_$BGPROCESS                  VIEW                                                                                     
+GV_$SESSION                    VIEW                                                                                     
+GV_$LICENSE                    VIEW                                                                                     
+GV_$TRANSACTION                VIEW                                                                                     
+GV_$LOCKED_OBJECT              VIEW                                                                                     
+GV_$LATCH                      VIEW                                                                                     
+GV_$LATCH_CHILDREN             VIEW                                                                                     
+GV_$LATCH_PARENT               VIEW                                                                                     
+GV_$LATCHNAME                  VIEW                                                                                     
+GV_$LATCHHOLDER                VIEW                                                                                     
+GV_$LATCH_MISSES               VIEW                                                                                     
+GV_$SESSION_LONGOPS            VIEW                                                                                     
+GV_$RESOURCE                   VIEW                                                                                     
+GV_$_LOCK                      VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$LOCK                       VIEW                                                                                     
+GV_$SESSTAT                    VIEW                                                                                     
+GV_$MYSTAT                     VIEW                                                                                     
+GV_$SUBCACHE                   VIEW                                                                                     
+GV_$SYSSTAT                    VIEW                                                                                     
+GV_$STATNAME                   VIEW                                                                                     
+GV_$OSSTAT                     VIEW                                                                                     
+GV_$ACCESS                     VIEW                                                                                     
+GV_$OBJECT_DEPENDENCY          VIEW                                                                                     
+GV_$DBFILE                     VIEW                                                                                     
+GV_$DATAFILE                   VIEW                                                                                     
+GV_$TEMPFILE                   VIEW                                                                                     
+GV_$TABLESPACE                 VIEW                                                                                     
+GV_$FILESTAT                   VIEW                                                                                     
+GV_$TEMPSTAT                   VIEW                                                                                     
+GV_$LOGFILE                    VIEW                                                                                     
+GV_$FLASHBACK_DATABASE_LOGFILE VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$FLASHBACK_DATABASE_LOG     VIEW                                                                                     
+GV_$FLASHBACK_DATABASE_STAT    VIEW                                                                                     
+GV_$RESTORE_POINT              VIEW                                                                                     
+GV_$ROLLSTAT                   VIEW                                                                                     
+GV_$UNDOSTAT                   VIEW                                                                                     
+GV_$SGA                        VIEW                                                                                     
+GV_$CLUSTER_INTERCONNECTS      VIEW                                                                                     
+GV_$CONFIGURED_INTERCONNECTS   VIEW                                                                                     
+GV_$PARAMETER                  VIEW                                                                                     
+GV_$PARAMETER2                 VIEW                                                                                     
+GV_$SYSTEM_PARAMETER           VIEW                                                                                     
+GV_$SYSTEM_PARAMETER2          VIEW                                                                                     
+GV_$SPPARAMETER                VIEW                                                                                     
+GV_$PARAMETER_VALID_VALUES     VIEW                                                                                     
+GV_$ROWCACHE                   VIEW                                                                                     
+GV_$ROWCACHE_PARENT            VIEW                                                                                     
+GV_$ROWCACHE_SUBORDINATE       VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$ENABLEDPRIVS               VIEW                                                                                     
+GV_$NLS_PARAMETERS             VIEW                                                                                     
+GV_$NLS_VALID_VALUES           VIEW                                                                                     
+GV_$LIBRARYCACHE               VIEW                                                                                     
+GV_$TYPE_SIZE                  VIEW                                                                                     
+GV_$ARCHIVE                    VIEW                                                                                     
+GV_$CIRCUIT                    VIEW                                                                                     
+GV_$DATABASE                   VIEW                                                                                     
+GV_$INSTANCE                   VIEW                                                                                     
+GV_$DISPATCHER                 VIEW                                                                                     
+GV_$DISPATCHER_CONFIG          VIEW                                                                                     
+GV_$DISPATCHER_RATE            VIEW                                                                                     
+GV_$LOGHIST                    VIEW                                                                                     
+GV_$SQLAREA                    VIEW                                                                                     
+GV_$SQLAREA_PLAN_HASH          VIEW                                                                                     
+GV_$SQLTEXT                    VIEW                                                                                     
+GV_$SQLTEXT_WITH_NEWLINES      VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$SQL                        VIEW                                                                                     
+GV_$SQL_SHARED_CURSOR          VIEW                                                                                     
+GV_$DB_PIPES                   VIEW                                                                                     
+GV_$DB_OBJECT_CACHE            VIEW                                                                                     
+GV_$OPEN_CURSOR                VIEW                                                                                     
+GV_$OPTION                     VIEW                                                                                     
+GV_$VERSION                    VIEW                                                                                     
+GV_$PQ_SESSTAT                 VIEW                                                                                     
+GV_$PQ_SYSSTAT                 VIEW                                                                                     
+GV_$PQ_SLAVE                   VIEW                                                                                     
+GV_$QUEUE                      VIEW                                                                                     
+GV_$SHARED_SERVER_MONITOR      VIEW                                                                                     
+GV_$DBLINK                     VIEW                                                                                     
+GV_$PWFILE_USERS               VIEW                                                                                     
+GV_$REQDIST                    VIEW                                                                                     
+GV_$SGASTAT                    VIEW                                                                                     
+GV_$SGAINFO                    VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$WAITSTAT                   VIEW                                                                                     
+GV_$SHARED_SERVER              VIEW                                                                                     
+GV_$TIMER                      VIEW                                                                                     
+GV_$RECOVER_FILE               VIEW                                                                                     
+GV_$BACKUP                     VIEW                                                                                     
+GV_$BACKUP_SET                 VIEW                                                                                     
+GV_$BACKUP_PIECE               VIEW                                                                                     
+GV_$BACKUP_DATAFILE            VIEW                                                                                     
+GV_$BACKUP_SPFILE              VIEW                                                                                     
+GV_$BACKUP_REDOLOG             VIEW                                                                                     
+GV_$BACKUP_CORRUPTION          VIEW                                                                                     
+GV_$COPY_CORRUPTION            VIEW                                                                                     
+GV_$DATABASE_BLOCK_CORRUPTION  VIEW                                                                                     
+GV_$MTTR_TARGET_ADVICE         VIEW                                                                                     
+GV_$STATISTICS_LEVEL           VIEW                                                                                     
+GV_$DELETED_OBJECT             VIEW                                                                                     
+GV_$PROXY_DATAFILE             VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$PROXY_ARCHIVEDLOG          VIEW                                                                                     
+GV_$CONTROLFILE_RECORD_SECTION VIEW                                                                                     
+GV_$ARCHIVED_LOG               VIEW                                                                                     
+GV_$OFFLINE_RANGE              VIEW                                                                                     
+GV_$DATAFILE_COPY              VIEW                                                                                     
+GV_$LOG_HISTORY                VIEW                                                                                     
+GV_$RECOVERY_LOG               VIEW                                                                                     
+GV_$ARCHIVE_GAP                VIEW                                                                                     
+GV_$DATAFILE_HEADER            VIEW                                                                                     
+GV_$BACKUP_DEVICE              VIEW                                                                                     
+GV_$MANAGED_STANDBY            VIEW                                                                                     
+GV_$ARCHIVE_PROCESSES          VIEW                                                                                     
+GV_$ARCHIVE_DEST               VIEW                                                                                     
+GV_$DATAGUARD_CONFIG           VIEW                                                                                     
+GV_$FIXED_TABLE                VIEW                                                                                     
+GV_$FIXED_VIEW_DEFINITION      VIEW                                                                                     
+GV_$INDEXED_FIXED_COLUMN       VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$SESSION_CURSOR_CACHE       VIEW                                                                                     
+GV_$SESSION_WAIT_CLASS         VIEW                                                                                     
+GV_$SESSION_WAIT               VIEW                                                                                     
+GV_$SESSION_WAIT_HISTORY       VIEW                                                                                     
+GV_$SESSION_EVENT              VIEW                                                                                     
+GV_$SESSION_CONNECT_INFO       VIEW                                                                                     
+GV_$SYSTEM_WAIT_CLASS          VIEW                                                                                     
+GV_$SYSTEM_EVENT               VIEW                                                                                     
+GV_$EVENT_NAME                 VIEW                                                                                     
+GV_$EVENT_HISTOGRAM            VIEW                                                                                     
+GV_$FILE_HISTOGRAM             VIEW                                                                                     
+GV_$TEMP_HISTOGRAM             VIEW                                                                                     
+GV_$EXECUTION                  VIEW                                                                                     
+GV_$SYSTEM_CURSOR_CACHE        VIEW                                                                                     
+GV_$SESS_IO                    VIEW                                                                                     
+GV_$RECOVERY_STATUS            VIEW                                                                                     
+GV_$RECOVERY_FILE_STATUS       VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$RECOVERY_PROGRESS          VIEW                                                                                     
+GV_$SHARED_POOL_RESERVED       VIEW                                                                                     
+GV_$SORT_SEGMENT               VIEW                                                                                     
+GV_$SORT_USAGE                 VIEW                                                                                     
+GV_$PQ_TQSTAT                  VIEW                                                                                     
+GV_$ACTIVE_INSTANCES           VIEW                                                                                     
+GV_$SQL_CURSOR                 VIEW                                                                                     
+GV_$SQL_BIND_METADATA          VIEW                                                                                     
+GV_$SQL_BIND_DATA              VIEW                                                                                     
+GV_$SQL_SHARED_MEMORY          VIEW                                                                                     
+GV_$GLOBAL_TRANSACTION         VIEW                                                                                     
+GV_$SESSION_OBJECT_CACHE       VIEW                                                                                     
+GV_$AQ1                        VIEW                                                                                     
+GV_$LOCK_ACTIVITY              VIEW                                                                                     
+GV_$HS_AGENT                   VIEW                                                                                     
+GV_$HS_SESSION                 VIEW                                                                                     
+GV_$HS_PARAMETER               VIEW                                                                                     
+
+TNAME                          TABTYPE  CLUSTERID                                                                       
+------------------------------ ------- ----------                                                                       
+GV_$RSRC_CONSUME_GROUP_CPU_MTH VIEW                                                                                     
+GV_$RSRC_PLAN_CPU_MTH          VIEW                                                                                     
+GV_$RSRC_CONSUMER_GROUP        VIEW                                                                                     

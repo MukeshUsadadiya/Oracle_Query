@@ -1,0 +1,239 @@
+SQL> select abs(-45) from dual;
+
+  ABS(-45)                                                                                                              
+----------                                                                                                              
+        45                                                                                                              
+
+SQL> select celi (12.12) from dual;
+select celi (12.12) from dual
+       *
+ERROR at line 1:
+ORA-00904: "CELI": invalid identifier 
+
+
+SQL> select ceil(12.12) from dual;
+
+CEIL(12.12)                                                                                                             
+-----------                                                                                                             
+         13                                                                                                             
+
+SQL> select floor (12.12) from dual;
+
+FLOOR(12.12)                                                                                                            
+------------                                                                                                            
+          12                                                                                                            
+
+SQL> select floor (12.99) from dual;
+
+FLOOR(12.99)                                                                                                            
+------------                                                                                                            
+          12                                                                                                            
+
+SQL> select exp(1) from dual;
+
+    EXP(1)                                                                                                              
+----------                                                                                                              
+2.71828183                                                                                                              
+
+SQL> select exp(2) from dual;
+
+    EXP(2)                                                                                                              
+----------                                                                                                              
+ 7.3890561                                                                                                              
+
+SQL> select greatest  (12,20,30,40) from dual;
+
+GREATEST(12,20,30,40)                                                                                                   
+---------------------                                                                                                   
+                   40                                                                                                   
+
+SQL> select least (10,20,30,40) from dual;
+
+LEAST(10,20,30,40)                                                                                                      
+------------------                                                                                                      
+                10                                                                                                      
+
+SQL> select log(10,2) from dual;
+
+ LOG(10,2)                                                                                                              
+----------                                                                                                              
+.301029996                                                                                                              
+
+SQL> select remainder(25,7) from dual;
+
+REMAINDER(25,7)                                                                                                         
+---------------                                                                                                         
+             -3                                                                                                         
+
+SQL> select round (25,3698.2) from dual;
+
+ROUND(25,3698.2)                                                                                                        
+----------------                                                                                                        
+              25                                                                                                        
+
+SQL> select sqrt (144) from dual;
+
+ SQRT(144)                                                                                                              
+----------                                                                                                              
+        12                                                                                                              
+
+SQL> select sign (-15) from dual;
+
+ SIGN(-15)                                                                                                              
+----------                                                                                                              
+        -1                                                                                                              
+
+SQL> select sign(15) from dual;
+
+  SIGN(15)                                                                                                              
+----------                                                                                                              
+         1                                                                                                              
+
+SQL> select sign(0) from dual;
+
+   SIGN(0)                                                                                                              
+----------                                                                                                              
+         0                                                                                                              
+
+SQL> select chr(65) from dual;
+
+C                                                                                                                       
+-                                                                                                                       
+A                                                                                                                       
+
+SQL> select chr(97) from dual;
+
+C                                                                                                                       
+-                                                                                                                       
+a                                                                                                                       
+
+SQL> select concat ('B,C,A','Degree') from dual;
+
+CONCAT('B,C                                                                                                             
+-----------                                                                                                             
+B,C,ADegree                                                                                                             
+
+SQL> select concat ('B.C.A.,'Degree' ) from dual;
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> ed.
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select concat ('B.C.A.','Degree') from dual
+SQL> /
+
+CONCAT('B.C.                                                                                                            
+------------                                                                                                            
+B.C.A.Degree                                                                                                            
+
+SQL> select initcap('Ruparel education pvt ltd') from dual;
+
+INITCAP('RUPARELEDUCATION                                                                                               
+-------------------------                                                                                               
+Ruparel Education Pvt Ltd                                                                                               
+
+SQL> selct lower('RUPAREL EDUCATION') from dual;
+SP2-0734: unknown command beginning "selct lowe..." - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select cap('RUPAREL EDUCATION') from dual
+SQL> /
+select cap('RUPAREL EDUCATION') from dual
+       *
+ERROR at line 1:
+ORA-00904: "CAP": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select lower('RUPAREL EDUCATION') from dual
+SQL> /
+
+LOWER('RUPARELEDU                                                                                                       
+-----------------                                                                                                       
+ruparel education                                                                                                       
+
+SQL> select upper('rupael education') from dual;
+
+UPPER('RUPAELEDU                                                                                                        
+----------------                                                                                                        
+RUPAEL EDUCATION                                                                                                        
+
+SQL> select ipad('RUparel','15','*') from dual;
+select ipad('RUparel','15','*') from dual
+       *
+ERROR at line 1:
+ORA-00904: "IPAD": invalid identifier 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select lpad('RUparel','15','*') from dual
+SQL> /
+
+LPAD('RUPAREL',                                                                                                         
+---------------                                                                                                         
+********RUparel                                                                                                         
+
+SQL> select rpad('Ruparel','15','*') from dual;
+
+RPAD('RUPAREL',                                                                                                         
+---------------                                                                                                         
+Ruparel********                                                                                                         
+
+SQL> select ltrim('      Ruparel') from dual;
+
+LTRIM('                                                                                                                 
+-------                                                                                                                 
+Ruparel                                                                                                                 
+
+SQL> select rtrim ('       Ruparel     ') from dual;
+
+RTRIM('RUPAREL                                                                                                          
+--------------                                                                                                          
+       Ruparel                                                                                                          
+
+SQL> select trim ('     Ruparel      ') from dual;
+
+TRIM('R                                                                                                                 
+-------                                                                                                                 
+Ruparel                                                                                                                 
+
+SQL> selct replace ('PGDCA DEGREE','PGDCA','BCA') from dual;
+SP2-0734: unknown command beginning "selct repl..." - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1* select trim ('     Ruparel      ') from dual
+SQL> /
+
+TRIM('R                                                                                                                 
+-------                                                                                                                 
+Ruparel                                                                                                                 
+
+SQL> select replace ('PGDCA DEGREE','PGDCA','BCA') from dual;
+
+REPLACE('P                                                                                                              
+----------                                                                                                              
+BCA DEGREE                                                                                                              
+
+SQL> select substr('RUparel eduaction',1,3) from dual;
+
+SUB                                                                                                                     
+---                                                                                                                     
+RUp                                                                                                                     
+
+SQL> select substr('Ruparel education ',1,2) from dual;
+
+SU                                                                                                                      
+--                                                                                                                      
+Ru                                                                                                                      
+
+SQL> spool off

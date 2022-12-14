@@ -1,0 +1,126 @@
+SQL> desc c1;
+ Name                                                              Null?    Type
+ ----------------------------------------------------------------- -------- --------------------------------------------
+ RNO                                                                        NUMBER(3)
+ M1                                                                         NUMBER(3)
+ M2                                                                         NUMBER(3)
+ M3                                                                         NUMBER(3)
+
+SQL> insert into c1 values(1,10,20,30);
+
+1 row created.
+
+SQL> create table d1
+  2  (rno number(3),
+  3  na,e varchar2(20),
+  4  city varchar2(20) default'Junagadh'
+  5  );
+na,e varchar2(20),
+*
+ERROR at line 3:
+ORA-02263: need to specify the datatype for this column 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table d1
+  2  (rno number(3),
+  3  name varchar2(20),
+  4  city varchar2(20) default'Junagadh'
+  5* )
+SQL> ./
+SP2-0042: unknown command "./" - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table d1
+  2  (rno number(3),
+  3  name varchar2(20),
+  4  city varchar2(20) default 'Junagadh'
+  5* )
+SQL> /
+create table d1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table dc1
+  2  (rno number(3),
+  3  name varchar2(20),
+  4  city varchar2(20) default 'Junagadh'
+  5* )
+SQL> /
+
+Table created.
+
+SQL> insert into dc1 values(rno,name) values(1,'Aaa');
+insert into dc1 values(rno,name) values(1,'Aaa')
+                                 *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into dc1 values(rno,name) values(1,'Aaa')
+SQL> /
+insert into dc1 values(rno,name) values(1,'Aaa')
+                                 *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1* insert into dc1(rno,name) values(1,'Aaa')
+SQL> /
+
+1 row created.
+
+SQL> insert into dc1 values(2,'Babb','Rajkot');
+
+1 row created.
+
+SQL> create table f1111111111111111111111111111111111111111111111111111111
+  2  create table f1
+  3  ed
+  4  
+SQL> );
+SP2-0042: unknown command ")" - rest of line ignored.
+SQL> create table f1
+  2  (rno number(3) primary key,
+  3  spuid number(3) unique,
+  4  name varchar2(20) not null,
+  5  mno varchar2(20) not null,
+  6  city varchar2(20) default'Junagadh',
+  7  age number(2) check (age between 1 and 99)
+  8  );
+create table f1
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table ff1
+  2  (rno number(3) primary key,
+  3  spuid number(3) unique,
+  4  name varchar2(20) not null,
+  5  mno varchar2(20) not null,
+  6  city varchar2(20) default'Junagadh',
+  7  age number(2) check (age between 1 and 99)
+  8* )
+SQL> /
+
+Table created.
+
+SQL> spool off
